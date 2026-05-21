@@ -151,7 +151,7 @@ export const InfoPages: React.FC = () => {
                     Google Search Result Simulator
                   </h4>
                   <div className="bg-white border rounded-lg p-3.5 shadow-3xs max-w-xl font-sans">
-                    <span className="text-[11px] text-slate-500 font-normal">https://careerforge.sh/placement/job-alerts</span>
+                    <span className="text-[11px] text-slate-500 font-normal">https://career-forge-ruby.vercel.app/placement/job-alerts</span>
                     <h3 className="text-indigo-800 hover:underline text-sm font-semibold tracking-tight leading-snug cursor-pointer pt-0.5">
                       ISRO Scientist & B.Tech Job Alerts 2026 | Direct Off-Campus Apply
                     </h3>
