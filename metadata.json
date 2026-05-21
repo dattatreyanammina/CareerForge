@@ -1,0 +1,6 @@
+{
+  "name": "CareerForge Hub",
+  "description": "AI-powered student portal and career guidance platform featuring tools for placement prep, interview guidance, resume construction, study plans, and gyan resources.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

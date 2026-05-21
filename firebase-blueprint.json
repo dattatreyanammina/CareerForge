@@ -1,0 +1,95 @@
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "User profile with learning statistics, saved items, and configuration.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier matching request.auth.uid"
+        },
+        "name": {
+          "type": "string",
+          "description": "Full display name"
+        },
+        "email": {
+          "type": "string",
+          "description": "Email address"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["user", "admin"],
+          "description": "User system permission tier"
+        },
+        "learningProgress": {
+          "type": "integer",
+          "description": "Calculated percentage completion of courses/mocks"
+        },
+        "savedBlogs": {
+          "type": "array",
+          "description": "List of saved blog slugs or IDs"
+        },
+        "savedTools": {
+          "type": "array",
+          "description": "List of saved tool parameters"
+        }
+      },
+      "required": ["id", "name", "email", "role"]
+    },
+    "MockAttempt": {
+      "title": "MockAttempt",
+      "description": "A record of an exam mock test or sectional mock attempt taken by the user.",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "userId": {
+          "type": "string"
+        },
+        "examType": {
+          "type": "string",
+          "enum": ["ssc-cgl", "gate", "fresher-qa"],
+          "description": "Identifier of the exam standard"
+        },
+        "section": {
+          "type": "string",
+          "enum": ["quantitative-aptitude", "general-english", "logical-reasoning", "general-awareness"],
+          "description": "Specific subject section targeted"
+        },
+        "score": {
+          "type": "integer",
+          "description": "Number of correct answers"
+        },
+        "totalQuestions": {
+          "type": "integer",
+          "description": "Total count of evaluation questions"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "accuracy": {
+          "type": "integer",
+          "description": "Calculated percentage representation of correct ratio"
+        },
+        "categoryPerformance": {
+          "type": "object",
+          "description": "Key-value pair diagnostics of sectional elements (e.g. algebra, grammar, etc.)"
+        }
+      },
+      "required": ["id", "userId", "examType", "section", "score", "totalQuestions", "createdAt"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Saves user profile attributes securely synchronized real-time."
+    },
+    "/users/{userId}/mockAttempts/{attemptId}": {
+      "schema": "MockAttempt",
+      "description": "Stores user diagnostic exam sectional mocks and final performance analysis reports."
+    }
+  }
+}
